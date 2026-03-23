@@ -1,8 +1,21 @@
 # Payment Transaction Analytics System (Simulated Data)
 
 ## Background & Context
-This project replicates a real-world payment analytics workflow similar to what I worked on in a payments/fintech environment.  
+This project replicates a real world payment analytics workflow similar to what a data analyst does in a payments/fintech environment.  
 To protect commercial confidentiality, all data used in this project is fully simulated while preserving realistic business logic, data volumes, and reporting structures.
+
+
+## Objective:
+To simulate the daily data operations of a payment provider and build SQL-driven analyses and dashboards that uncover insights on:
+
+- Merchant performance
+- Transaction trends
+- Payment method profitability
+- Retention and churn
+- Risk and anomaly detection
+
+This will demonstrate end to end SQL capability from schema design to advanced queries, mirroring the type of analytics done by a Payments Data Analyst or Business Intelligence Analyst.
+
 
 ## Project Overview
 The system models merchant payment activity across Australia, including:
