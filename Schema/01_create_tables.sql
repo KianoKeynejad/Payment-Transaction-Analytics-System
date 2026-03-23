@@ -1,14 +1,11 @@
--- =========================================================
 -- PAYMENT TRANSACTION ANALYTICS SYSTEM
 -- MASTER SCHEMA FILE
--- =========================================================
 
 CREATE SCHEMA IF NOT EXISTS payment_analytics;
 SET search_path TO payment_analytics;
 
--- =========================================================
--- DROP TABLES (FACT → DIMENSION ORDER)
--- =========================================================
+-- DROP TABLES
+-- Drop fact tables or dependent tables first ( transactions ) to avoid FK constraint errors, then drop dimension tables
 
 DROP TABLE IF EXISTS transactions CASCADE;
 DROP TABLE IF EXISTS merchant_monthly_profitability CASCADE;
@@ -16,9 +13,7 @@ DROP TABLE IF EXISTS price_profiles CASCADE;
 DROP TABLE IF EXISTS terminals CASCADE;
 DROP TABLE IF EXISTS merchants CASCADE;
 
--- =========================================================
 -- MERCHANTS (DIMENSION)
--- =========================================================
 
 CREATE TABLE merchants (
     merchant_id     UUID PRIMARY KEY,
@@ -34,9 +29,7 @@ CREATE TABLE merchants (
     status          VARCHAR(20) NOT NULL DEFAULT 'Active'
 );
 
--- =========================================================
 -- TERMINALS (DIMENSION)
--- =========================================================
 
 CREATE TABLE terminals (
     terminal_id     UUID PRIMARY KEY,
@@ -47,9 +40,7 @@ CREATE TABLE terminals (
     activation_date DATE NOT NULL
 );
 
--- =========================================================
 -- PRICE PROFILES (DIMENSION)
--- =========================================================
 
 CREATE TABLE price_profiles (
     price_profile_id UUID PRIMARY KEY,
@@ -62,9 +53,7 @@ CREATE TABLE price_profiles (
     created_at       DATE NOT NULL
 );
 
--- =========================================================
 -- TRANSACTIONS (FACT TABLE)
--- =========================================================
 
 CREATE TABLE transactions (
     transaction_id        UUID PRIMARY KEY,
@@ -83,9 +72,7 @@ CREATE TABLE transactions (
         CHECK (transaction_status IN ('Approved', 'Declined', 'Refunded'))
 );
 
--- =========================================================
 -- MERCHANT MONTHLY PROFITABILITY (DERIVED FACT)
--- =========================================================
 
 CREATE TABLE merchant_monthly_profitability (
     merchant_id            UUID NOT NULL
@@ -99,6 +86,4 @@ CREATE TABLE merchant_monthly_profitability (
     PRIMARY KEY (merchant_id, month)
 );
 
--- =========================================================
 -- END OF SCHEMA
--- =========================================================
