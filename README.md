@@ -58,7 +58,7 @@ The same aggregation logic is designed to be executed each month using the most 
 All data in this repository is synthetic and generated programmatically.  
 No real merchant, customer, or financial data has been used or exposed.
 
-## Tools & Skills Demonstrated
+## Tools and Skills Demonstrated
 - PostgreSQL
 - SQL (joins, aggregations, date handling)
 - Data modeling & schema design
