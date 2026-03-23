@@ -1,6 +1,6 @@
 # Payment Transaction Analytics System (Simulated Data)
 
-## Background & Context
+## Background and Context
 This project replicates a real world payment analytics workflow similar to what a data analyst does in a payments/fintech environment.  
 To protect commercial confidentiality, all data used in this project is fully simulated while preserving realistic business logic, data volumes, and reporting structures.
 
